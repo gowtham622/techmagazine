@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bio Face | Dashboard</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,229,255,0.2);
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00e5ff;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00e5ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 30px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero h2 {
+      font-size: 2.4em;
+      color: #00e5ff;
+      text-shadow: 0 0 20px #00e5ff;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.7;
+      color: #cfd8dc;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px 60px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,229,255,0.1);
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,229,255,0.3);
+    }
+
+    .feature-card h3 {
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #cfd8dc;
+      font-size: 0.95em;
+    }
+
+    .analysis-section {
+      text-align: center;
+      margin: 80px 0;
+    }
+
+    .upload-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px dashed rgba(0, 229, 255, 0.5);
+      border-radius: 20px;
+      padding: 40px;
+      display: inline-block;
+      width: 70%;
+      max-width: 500px;
+      transition: 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .upload-box:hover {
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    }
+
+    input[type="file"] {
+      margin-top: 15px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 25px;
+      background: linear-gradient(90deg, #00e5ff, #00bcd4);
+      border: none;
+      color: #000;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #00bcd4, #0097a7);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+
+    .result {
+      margin-top: 30px;
+      font-size: 1em;
+      color: #00e5ff;
+      text-shadow: 0 0 10px #00e5ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85em;
+      color: #aaa;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Bio Face</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#" @click="logout">Logout</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Welcome to Bio Face Dashboard</h2>
+      <p>
+        Experience the next generation of AI-driven biometric health analysis.
+        Bio Face uses advanced facial recognition to detect subtle indicators of health conditions,
+        like fever or fatigue, providing real-time insights into your wellness.
+      </p>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <h3>AI-Powered Analysis</h3>
+        <p>Utilizes deep learning to understand facial structures and patterns linked to health metrics.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Biometric Insights</h3>
+        <p>Detects visual cues such as flushed skin, eye redness, or expression fatigue to assess wellbeing.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Personalized Feedback</h3>
+        <p>Receive tailored health recommendations based on your unique facial features and patterns.</p>
+      </div>
+    </section>
+
+    <section class="analysis-section">
+      <h2>Start Facial Health Analysis</h2>
+      <div class="upload-box">
+        <form @submit.prevent="analyzeFace">
+          <input type="file" @change="onFileChange" accept="image/*" required />
+          <br>
+          <button type="submit">Analyze Face</button>
+        </form>
+        <p class="result" v-if="result">{{ result }}</p>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Bio Face | Powered by AI & Biometrics
+    </footer>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          file: null,
+          result: ''
+        };
+      },
+      methods: {
+        onFileChange(e) {
+          this.file = e.target.files[0];
+        },
+        async analyzeFace() {
+          if (!this.file) {
+            this.result = 'Please upload a face image first.';
+            return;
+          }
+          const formData = new FormData();
+          formData.append('file', this.file);
+          try {
+            const res = await fetch('http://127.0.0.1:5000/analyze_face', {
+              method: 'POST',
+              body: formData
+            });
+            const data = await res.json();
+            this.result = data.message || 'Analysis complete!';
+          } catch (err) {
+            this.result = 'Error analyzing face. Try again.';
+          }
+        },
+        logout() {
+          window.location.href = '/';
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

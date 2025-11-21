@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Frontend Page</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #f5f7fa;
+        }
+
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            background: #4a6cf7;
+            padding: 15px 40px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #333;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 18px;
+            margin-top: -10px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #4a6cf7;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Features */
+        .features {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 25px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #fff;
+            width: 300px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #4a6cf7;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            background: #4a6cf7;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>My Website</h2>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to My Frontend Page</h1>
+        <p>A simple and modern webpage built using HTML & CSS.</p>
+        <button class="btn">Get Started</button>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="card">
+            <h3>Fast</h3>
+            <p>Optimized for smooth performance.</p>
+        </div>
+
+        <div class="card">
+            <h3>Responsive</h3>
+            <p>Looks perfect on any device.</p>
+        </div>
+
+        <div class="card">
+            <h3>Modern UI</h3>
+            <p>Clean and easy-to-use design.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 My Website | All Rights Reserved
+    </footer>
+</body>
+</html>
